@@ -1,6 +1,19 @@
 # faustini
 
-A Clojure library designed to ... well, that part is up to you.
+Faustini maps things to other things!
+
+## Simple Example
+```clojure
+(require '[faustini.core :refer [define-mapping ==> =?>]])
+
+(def foo {:item1 [{:item2 "value!"}]})
+
+(define-mapping my-map
+  [:remapped-entry ==> :item1 0 :item2])
+
+(my-map foo)
+;; {:remapped-entry "value!"}
+```
 
 ## Usage
 
