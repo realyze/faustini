@@ -1,6 +1,7 @@
 # Faustini
 
 [![Clojars Project](http://clojars.org/faustini/latest-version.svg)](http://clojars.org/faustini)
+
 [![Circle CI](https://circleci.com/gh/realyze/faustini.svg?style=svg)](https://circleci.com/gh/realyze/faustini)
 
 It maps things to other things!
