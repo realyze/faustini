@@ -1,5 +1,7 @@
 # Faustini
 
+[![Clojars Project](http://clojars.org/faustini/latest-version.svg)](http://clojars.org/faustini)
+
 It maps things to other things!
 
 ## Simple Example
