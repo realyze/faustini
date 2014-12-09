@@ -51,7 +51,7 @@
                 {head value}))
 
             (clojure.test/function? (last rules))
-            (let [path (concat *wrapper* (butlast rules))
+            (let [path (butlast rules)
                   res (if path (get-in item path) item)]
               {head ((last rules) res)})
 
