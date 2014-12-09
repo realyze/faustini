@@ -6,6 +6,8 @@
 ;; Conditional matcher.
 (def =?> "=?>")
 
+(def CONST-RULE :_const )
+
 
 (defn split-by-pred
   [pred coll]
@@ -42,7 +44,7 @@
   [item [head arrow & rules]]
   (case arrow
     "==>" (cond
-            (= (first rules) :const)
+            (= (first rules) CONST-RULE)
             (let [[_ value fun] rules]
               (if (clojure.test/function? fun)
                 {head (fun value)}
@@ -56,7 +58,7 @@
     "=?>" (execute-cond-line item head (first rules))))
 
 (defmacro define-mapping
-  [mapping-name & entries]
+  ([mapping-name & entries]
   `(def ~mapping-name (fn [item#]
-                          (reduce #(into %1 (execute-line item# %2)) {} [~@entries]))))
+                          (reduce #(into %1 (execute-line item# %2)) {} [~@entries])))))
 

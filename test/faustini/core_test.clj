@@ -16,7 +16,7 @@
 
       (facts "constant simple mapping works"
         (define-mapping const-map
-          [:const-entry ==> :const "const-value"])
+          [:const-entry ==> :_const "const-value"])
         (const-map item) => {:const-entry "const-value"}
         )
 
