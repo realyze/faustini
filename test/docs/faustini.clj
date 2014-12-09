@@ -70,7 +70,7 @@ result of the preceding rules."
   (simple-map item) => {:objectType :story})
 
 "If there are no preceding rules, it is applied to the whole item. This can be used
-as a fallback in case Faustini's declarative mapping isn't flexible or string enough
+as a fallback in case Faustini's declarative mapping isn't flexible or strong enough
 for your needs."
 (fact
   (define-mapping simple-map [:my-value ==> (fn [item] (str "type_"
