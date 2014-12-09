@@ -51,8 +51,9 @@
                 {head value}))
 
             (clojure.test/function? (last rules))
-            {head ((last rules) (or (get-in item (butlast rules)) item))}
-
+            (let [path (concat *wrapper* (butlast rules))
+                  res (if path (get-in item path) item)]
+              {head ((last rules) res)})
 
             :else {head (get-in item rules)})
     "=?>" (execute-cond-line item head (first rules))))

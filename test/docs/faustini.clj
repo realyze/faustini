@@ -111,7 +111,7 @@ the first matching predicate will then be used to determine the resulting value.
  whether a specified value belongs to a predefined set."
 
 (fact
-  
+
   (def parse-time #(tf/parse (tf/formatters :date-time-no-ms) %))
 
   (define-mapping match-set-map

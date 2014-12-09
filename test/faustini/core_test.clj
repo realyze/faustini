@@ -27,6 +27,13 @@
             [:fun-value ==> :foo 0 :bar keyword])
           (fun-map item) => {:fun-value :value-1})
 
+        (facts "if the preceding rules are not a valid path in the item"
+
+          (fact "the function is called with `nil`"
+            (define-mapping fun-map
+              [:fun-value ==> :invalid 0 :bar identity])
+            (fun-map item) => {:fun-value nil}))
+
         (facts "when there are no preceding rules"
 
           (fact "the last rule is invoked with the whole item"
