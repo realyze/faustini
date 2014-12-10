@@ -1,4 +1,4 @@
-(defproject faustini "0.1.1-SNAPSHOT"
+(defproject faustini "0.1.2-SNAPSHOT"
   :description "Behold! It maps things to...other things!"
   :url "http://github.com/realyze/faustini"
   :license {:name "Eclipse Public License"
