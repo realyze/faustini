@@ -119,6 +119,18 @@ the first matching predicate will then be used to determine the resulting value.
                                        [:published ==> :changes 0 :new-values :updated-at parse-time]]])
   (match-set-map item) => {:published (parse-time "2014-10-10T15:04:00Z")})
 
+"We can also provide an optional `:else` default branch:"
+
+(fact
+
+  (define-mapping match-set-map
+    [[:primary-resources 0 :kind] =?> [:match-set #{"no match here"}
+                                       [:published ==> :changes 0 :new-values :updated-at]
+                                       :else
+                                       [:published ==> :_const "unknown"]]])
+  (match-set-map item) => {:published "unknown"})
+
+
 
 [[:section {:title "Real World Example"}]]
 
