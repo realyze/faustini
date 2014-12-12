@@ -44,8 +44,10 @@
               (flatten (map #(execute-line item %) (rest (last parts))))
               nil)
             ;; We found a matching predicate.
-            (let [[_ _ & rules] (first results)]
-              (flatten (map #(execute-line item %) rules))))))
+            (let [rules (map #(drop 2 %) results)
+                  ;; Merge rules from all the matching branches.
+                  merged-rules (apply concat rules)]
+              (flatten (map #(execute-line item %) merged-rules))))))
 
 
 (defn execute-simple-line

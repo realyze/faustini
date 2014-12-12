@@ -130,6 +130,22 @@ the first matching predicate will then be used to determine the resulting value.
                                        [:published ==> :_const "unknown"]]])
   (match-set-map item) => {:published "unknown"})
 
+"When multiple lines match, all their corresponding rules are merged together and used."
+(fact
+
+  (define-mapping match-set-map
+    [[:primary-resources 0 :kind] =?> [:match-set #{"story"}
+                                       [:entry1 ==> :_const "the first match"]
+
+                                       :match-set #{"no-match-here"}
+                                       [:foo ==> :_const "bar"]
+
+                                       :match-set #{"story"}
+                                       [:entry2 ==> :_const "the other match"]]])
+  (match-set-map item) => {:entry1 "the first match"
+                           :entry2 "the other match"})
+
+
 
 
 [[:section {:title "Real World Example"}]]

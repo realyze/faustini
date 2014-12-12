@@ -51,7 +51,7 @@
                                 [:cond-entry-1 ==> :baz :baz-inner 0]]])
           (cond-map item) => {:cond-entry-1 "a"})
 
-        (fact "works with multiple conditions"
+        (fact "works with multiple conditions" :multiple-conditions
           (define-mapping cond-map
             [[:foo 0 :bar] =?> [:match-set #{"value-invalid"}
                                 [:cond-entry-1 ==> :baz :baz-inner 0]
@@ -68,12 +68,21 @@
                               [:cond-entry-1 ==> :baz :baz-inner 0]]])
         (cond-map item) => {})
 
-      (fact "works recursively" recursive
+      (fact "works recursively" :recursive
         (define-mapping cond-recursive-map
           [[:foo 0 :bar] =?> [:match-set #{"value-1"}
                               [[:foo 0 :bar] =?> [:match-set #{"value-1"}
                                                   [:cond-recursive ==> :_const 42]]]]])
         (cond-recursive-map item) => {:cond-recursive 42})
+
+      (fact "triggers all the matching rules" :more-matches
+        (define-mapping cond-map
+          [[:foo 0 :bar] =?> [:match-set #{"value-1"}
+                              [:cond-entry-1 ==> :baz :baz-inner 0]
+                              :match-set #{"value-1"}
+                              [:cond-entry-2 ==> :baz :baz-inner 0]]])
+        (cond-map item) => {:cond-entry-1 "a"
+                            :cond-entry-2 "a"})
 
       (fact "with a match but a wrong path yields the entry with `nil` value"
         (define-mapping cond-map
