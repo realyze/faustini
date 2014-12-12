@@ -2,7 +2,7 @@
     (:use midje.sweet)
     (:require [faustini.core :refer [define-mapping ==> =?>]]))
 
-(facts "define-mapping"
+(fact-group "define-mapping"
   (let [item {:foo [{:bar "value-1"}]
               :baz {:baz-inner ["a" "b" "c"]}}]
 
@@ -41,9 +41,9 @@
               [:fun-value ==> #(get-in % [:baz :baz-inner 0])])
             (fun-map item) => {:fun-value "a"}))))
 
-    (facts "conditional mapping"
+    (fact-group "conditional mapping"
 
-      (facts ":match-set"
+      (fact-group ":match-set"
 
         (fact "works in simple case"
           (define-mapping cond-map
@@ -67,6 +67,13 @@
           [[:foo 0 :bar] =?> [:match-set #{"value-invalid"}
                               [:cond-entry-1 ==> :baz :baz-inner 0]]])
         (cond-map item) => {})
+
+      (fact "works recursively" recursive
+        (define-mapping cond-recursive-map
+          [[:foo 0 :bar] =?> [:match-set #{"value-1"}
+                              [[:foo 0 :bar] =?> [:match-set #{"value-1"}
+                                                  [:cond-recursive ==> :_const 42]]]]])
+        (cond-recursive-map item) => {:cond-recursive 42})
 
       (fact "with a match but a wrong path yields the entry with `nil` value"
         (define-mapping cond-map

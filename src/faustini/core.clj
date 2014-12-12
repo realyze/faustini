@@ -41,11 +41,11 @@
             ;; No result found.
             (if (= (first (last parts)) :else)
               ;; `:else` branch found (as the last branch).
-              (map #(execute-line item %) (rest (last parts)))
+              (flatten (map #(execute-line item %) (rest (last parts))))
               nil)
             ;; We found a matching predicate.
             (let [[_ _ & rules] (first results)]
-              (map #(execute-line item %) rules)))))
+              (flatten (map #(execute-line item %) rules))))))
 
 
 (defn execute-simple-line
