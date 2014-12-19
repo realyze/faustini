@@ -4,7 +4,14 @@
 
 [![Circle CI](https://circleci.com/gh/realyze/faustini.svg?style=svg)](https://circleci.com/gh/realyze/faustini)
 
-It maps things to other things!
+It maps things to other things! Which is particularly useful if you have, say, some web services that you get JSON data from and you want to store them in your very own app data format.
+
+Steps:
+
+1. Describe the mapping to Faustini (via `define-mapping`).
+2. Pass items to the mapping function and get items in your app format.
+3. ...
+4. PROFIT!
 
 ## Simple Example
 ```clojure
@@ -54,7 +61,7 @@ It maps things to other things!
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Tomas Brambora, Salsita, l.t.d.
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
