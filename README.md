@@ -32,9 +32,9 @@ Steps:
 
 
 
-(def my-favourite food {:sweets [{:name "snickers" :cals 900}
-                                 {:name "mars" :cals 1000}]
-                        :meals [{:name "foobar!"}})
+(def foo {:item-1-1 [{:item-1-2 "snickers!"}]
+          :item-2-1 {:item-2-2 "foobar!"
+                     :item-2-3 "barbar!"}})
 
 (def bar {:item-1-1 [{:item-1-2 "mars!"}]
           :item-2-1 {:item-2-2 "foobar!"
