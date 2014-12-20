@@ -104,7 +104,7 @@ for your needs."
                ...]])
 
 "Faustini will get the value for `rule` and match it against the `predicate`. Rules of
-the first matching predicate will then be used to determine the resulting value."
+all matching predicates will then be merged and used to determine the resulting value."
 
 [[:subsection {:title "match-set mapping"}]]
 "The `match-set` mapping can be used to select the resulting mapping based on
