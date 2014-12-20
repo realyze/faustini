@@ -13,6 +13,9 @@ Steps:
 3. ...
 4. PROFIT!
 
+## Documentation
+...is generated from the tests using [midje-doc](http://docs.caudate.me/lein-midje-doc/). See [here](http://htmlpreview.github.io/?https://github.com/realyze/faustini/blob/master/docs/index.html)
+
 ## Simple Example
 ```clojure
 (require '[faustini.core :refer [define-mapping ==> =?>]])
