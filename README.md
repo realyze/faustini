@@ -14,9 +14,9 @@ Steps:
 4. PROFIT!
 
 ## Documentation
-...is generated from the tests using [midje-doc](http://docs.caudate.me/lein-midje-doc/). See [here](http://htmlpreview.github.io/?https://github.com/realyze/faustini/blob/master/docs/index.html)
+...with a real world use case scenario is [here](http://htmlpreview.github.io/?https://github.com/realyze/faustini/blob/master/docs/index.html). It is generated from the tests using [midje-doc](http://docs.caudate.me/lein-midje-doc/) so if the CircleCI badge is green, it should be up-to-date.
 
-## Simple Example
+## Simple (And Totally Contrived) Example
 ```clojure
 (require '[faustini.core :refer [define-mapping ==> =?>]])
 
